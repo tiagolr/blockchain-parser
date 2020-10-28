@@ -1,24 +1,36 @@
 Blockchain parser
 =================
 
-**Author:** Denis Leonov <466611@gmail.com>
+Modified version of Denis Leonov block parser
 
-Simple script for parsing **blkXXXXX.dat** files of Bitcoin blockchain database.
+* supports partial blocks
+* prints output to std allowing it to be pipped into a file or other program
 
-This script also compatible with most of altcoins, after making some tiny tricks.
+## Example
+```
+py blockchain-parser.py blk00000.dat
 
-**The one realisation of blockchain parser that allows you to explore the main database as close as possible.**
+BLOCK
+size 0000011D
+hash 000000000019D6689C085AE165831E934FF763AE46A2A6C172B3F1B60A8CE26F
+version 00000001
+previous 0000000000000000000000000000000000000000000000000000000000000000
+merkle 4A5E1E4BAAB89F3A32518A88C31BC87F618F76673E2CC77AB2127B7AFDEDA33B
+timestamp 495FAB29
+difficulty 1D00FFFF
+nonce 7C2BAC1D
+tx_count 1
 
-![blockchain parser](https://hsto.org/getpro/habr/post_images/dad/899/889/dad89988966ca08db3223bbc9b2afc90.jpg)
-
-Don't worry to email me your questions or suggestions about this parser.
-
-No dependencies, no third-parties modules or libs needed. Just install Python standart release and run.
-
-Make sure you change the paths for **blkXXXXX.dat** files and for the parsing results to yours. The script works only with fully downloaded blockchain **dat** files (that are ~134Mb).
-
-This script convert the full blockchain raw database that is stored in **blkXXXXX.dat** files to the simple **txt** view.
-
-**If this was helpfull for you, don't hesistate to make a donations!!!**
-
-Bitcoin (BTC): 1FvssyzXNnmgHbJg2DYwb7rkzTrtT8adcL
+TX
+version 00000001
+inputs 01
+from 0000000000000000000000000000000000000000000000000000000000000000
+vout FFFFFFFF
+script 04FFFF001D0104455468652054696D65732030332F4A616E2F32303039204368616E63656C6C6F72206F6E206272696E6B206F66207365636F6E64206261696C6F757420666F722062616E6B73
+sequence FFFFFFFF
+outputs 1
+value 000000012A05F200
+script 4104678AFDB0FE5548271967F1A67130B7105CD6A828E03909A67962E0EA1F61DEB649F6BC3F4CEF38C4F35504E51EC112DE5C384DF7BA0B8D578A4C702B6BF11D5FAC
+locktime 00000000
+hash 4A5E1E4BAAB89F3A32518A88C31BC87F618F76673E2CC77AB2127B7AFDEDA33B
+```
